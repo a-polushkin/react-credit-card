@@ -10,6 +10,7 @@
   --switcherBack: white;
   --creditCardBack: white;
   --background: linear-gradient(135deg, rgb(205, 254, 255) 0%, rgb(204, 190, 255) 100%);
+  --placeholderColor: #c8c7c7;
 }
 
 :root[theme="dark"]{
@@ -23,6 +24,7 @@
   --switcherBack: #424242;
   --creditCardBack: #424242;
   --background: linear-gradient(135deg, hsl(249, 20%, 40%) 0%, hsl(241, 34%, 27%) 100%);
+  --placeholderColor: #646464;
 }
 
 /* elements that change color */
@@ -37,18 +39,15 @@ p{
 }
 
 
-.card-form button {
+.card-container button {
   background: var(--buttonColor);
   color: var(--buttonText);
 }
 
-/* Transitons for smooth theme change */
-*:not(html) {
-  transition: all .5s ease;
-}
-
 /* All other styles */
 html{
+  padding: 100px;
+  box-sizing: border-box;
   height: 100%;
 }
 body {
@@ -67,12 +66,11 @@ code {
 }
 
 .App {
-  margin-top: 150px;
   height: 100%;
   display: block;
 }
 
-.card-form {
+.card-container {
   padding: 5%;
   width: 350px;
   background: var(--creditCardBack);
@@ -84,7 +82,7 @@ code {
   position: relative;
 }
 
-.card-form button {
+.card-container button {
   width: 100%;
   border-radius: 10px;
   height: 2rem;
@@ -96,9 +94,34 @@ code {
 .card-preview{
   margin-top: -100px;
 }
+.card-input{
+    background: transparent;
+  margin-left: auto;
+  margin-right: auto;
+    border: none;
+    color: var(--mainText);
+    font-size: 20px;
+  width: 300px;
+    border-bottom: 1px solid var(--additionalText);
+}
+.card-input:focus{
+    border-bottom: 1px solid var(--buttonColor);
+    outline: none;
+}
+.card-input::placeholder{
+    color: var(--placeholderColor);
+}
 
-
-
+.card-input-label{
+  margin-top: 15px;
+  margin-left: auto;
+  margin-right: auto;
+  width: 300px;
+  text-align: left;
+  display: inline-block;
+  color: var(--additionalText);
+  font-size: 12px;
+}
 
 .Switch {
   position: absolute;
@@ -130,4 +153,8 @@ button {
 
 .icon {
   color: var(--inactive);
+}
+
+.rccs__card--visa .rccs__card__background {
+  background-image: linear-gradient(135deg, rgb(205, 254, 255) 0%, rgb(204, 190, 255) 100%) !important;
 }
