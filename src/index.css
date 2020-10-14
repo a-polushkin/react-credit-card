@@ -16,15 +16,15 @@
 :root[theme="dark"]{
 --heading: white;
 --buttonColor: #b5838d;
-  --mainText: #fff;
+--mainText: #fff;
 --additionalText: #c3c3c3;
 --buttonText: #fff;
-  --active: #5c77de;
-  --inactive: #888888;
-  --switcherBack: #424242;
-  --creditCardBack: #424242;
-  --background: linear-gradient(135deg, hsl(249, 20%, 40%) 0%, hsl(241, 34%, 27%) 100%);
-  --placeholderColor: #646464;
+--active: #5c77de;
+--inactive: #888888;
+--switcherBack: #424242;
+--creditCardBack: #424242;
+--background: linear-gradient(135deg, hsl(249, 20%, 40%) 0%, hsl(241, 34%, 27%) 100%);
+--placeholderColor: #646464;
 }
 
 /* elements that change color */
