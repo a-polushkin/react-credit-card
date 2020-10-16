@@ -100,15 +100,24 @@ code {
 .card-preview {
   margin-top: -100px;
 }
+
+.light-input{
+  color: #000;
+  border-bottom: 1px solid #434343 !important;
+
+}
+.dark-input{
+  color: #fff;
+  border-bottom: 1px solid #c3c3c3 !important;
+}
+
 .card-input {
   background: transparent;
   margin-left: auto;
   margin-right: auto;
   border: none;
-  color: var(--mainText);
   font-size: 20px;
   width: 300px;
-  border-bottom: 1px solid var(--additionalText);
 }
 .card-input:focus {
   border-bottom: 1px solid var(--buttonColor);
@@ -129,7 +138,7 @@ code {
   font-size: 12px;
 }
 
-.Switch {
+.switch {
   position: absolute;
   top: 20px;
   right: 20px;
@@ -144,7 +153,7 @@ code {
   border: none;
 }
 
-.Switch .icon {
+.switch .icon {
   font-size: 1.3rem;
 }
 
@@ -160,11 +169,12 @@ button {
 .icon {
   color: var(--inactive);
 }
-
+/*
+// change visa card gradient
 .rccs__card--visa .rccs__card__background {
   background-image: linear-gradient(
     135deg,
     rgb(205, 254, 255) 0%,
     rgb(204, 190, 255) 100%
   ) !important;
-}
+}*/

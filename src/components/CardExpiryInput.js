@@ -1,6 +1,9 @@
 import React from "react";
+import ThemeContext from "../context/ThemeContext";
 
 export default function CardExpiryInput({ expiry, onChangeExpiry, onFocus }) {
+  const { theme } = React.useContext(ThemeContext);
+
   return (
     <div className="card-input-block">
       <label className="card-input-label" htmlFor="cardDate">
@@ -9,7 +12,7 @@ export default function CardExpiryInput({ expiry, onChangeExpiry, onFocus }) {
       <input
         type="tel"
         name="expiry"
-        className="card-input"
+        className={`${theme}-input card-input`}
         placeholder="Valid Thru"
         pattern="\d\d/\d\d"
         required

@@ -1,44 +1,37 @@
 import React, { useLayoutEffect, useState } from "react";
 
+export const Themes = { light: "light", dark: "dark" };
+
 const ThemeContext = React.createContext({
-  dark: false,
-  toggle: () => {},
+  theme: Themes.light,
+  changeTheme: () => {},
 });
 
 export default ThemeContext;
 
 export function ThemeProvider(props) {
-  const [dark, setDark] = useState(false);
+  const [theme, setTheme] = useState(Themes.light);
 
-  const toggle = () => {
-    const html = document.getElementsByTagName("html")[0];
-    html.style.cssText = "transition: background-color .5s ease";
-    setDark(!dark);
-    window.localStorage.setItem("darkTheme", !dark);
+  const changeTheme = (theme) => {
+    setTheme(theme);
+    window.localStorage.setItem("theme", theme);
   };
 
   // paints the app before it renders elements
   useLayoutEffect(() => {
-    const lastTheme = window.localStorage.getItem("darkTheme");
-
-    if (lastTheme === "true") {
-      setDark(true);
+    const lastTheme = window.localStorage.getItem("theme");
+    if (lastTheme) {
+      setTheme(lastTheme);
       const root = document.getElementsByTagName("html")[0];
-      root.setAttribute("theme", "dark");
+      root.setAttribute("theme", lastTheme);
     }
-
-    if (!lastTheme || lastTheme === "false") {
-      setDark(false);
-      const root = document.getElementsByTagName("html")[0];
-      root.removeAttribute("theme");
-    }
-  }, [dark]);
+  }, [theme]);
 
   return (
     <ThemeContext.Provider
       value={{
-        dark,
-        toggle,
+        theme,
+        changeTheme,
       }}
     >
       {props.children}

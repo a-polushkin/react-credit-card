@@ -36,15 +36,12 @@ export default function CardForm(props) {
   }, []);
   const handleSubmit = useCallback((e) => {
     e.preventDefault();
-    const formData = [...e.target.elements]
-      .filter((d) => d.name)
-      .reduce((acc, d) => {
-        acc[d.name] = d.valueOf();
-        return acc;
-      }, {});
+    const formData = new FormData(e.target);
     setFormData(formData);
-    console.log(formData);
-  });
+    for (let [name, value] of formData) {
+      console.log(`${name} = ${value}`);
+    }
+  }, []);
 
   return (
     <div className="card-container">
@@ -58,7 +55,7 @@ export default function CardForm(props) {
           callback={handleCardCallback}
         />
       </div>
-      <form className="card-form" onSubmit={handleSubmit}>
+      <form className="card-form" name="card-form" onSubmit={handleSubmit}>
         <CardNumberInput
           number={number}
           onChangeNumber={onChangeNumber}
