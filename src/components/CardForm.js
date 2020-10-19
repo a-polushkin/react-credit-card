@@ -1,15 +1,10 @@
 import React, { useCallback, useState } from "react";
 import Cards from "react-credit-cards";
 import "react-credit-cards/es/styles-compiled.css";
-import {
-  formatCreditCardNumber,
-  formatCVC,
-  formatExpirationDate,
-} from "../utils";
-import CardNumberInput from "./CardNumberInput";
-import CardHolderInput from "./CardHolderInput";
-import CardExpiryInput from "./CardExpiryInput";
-import CardCvcInput from "./CardCvcInput";
+import CardNumberInput from "./inputs/CardNumberInput";
+import CardHolderInput from "./inputs/CardHolderInput";
+import CardExpiryInput from "./inputs/CardExpiryInput";
+import CardCvcInput from "./inputs/CardCvcInput";
 
 export default function CardForm(props) {
   const [number, setNumber] = useState("");
@@ -19,15 +14,6 @@ export default function CardForm(props) {
   const [issuer, setIssuer] = useState("");
   const [focused, setFocus] = useState("");
 
-  const onChangeNumber = useCallback((target) => {
-    setNumber(formatCreditCardNumber(target.value));
-  }, []);
-  const onChangeExpiry = useCallback((target) => {
-    setExpiry(formatExpirationDate(target.value));
-  }, []);
-  const onChangeCvc = useCallback((target) => {
-    setCvc(formatCVC(target.value));
-  }, []);
   const handleCardCallback = useCallback(({ issuer }, isValid) => {
     if (isValid) {
       setIssuer(issuer);
@@ -56,20 +42,20 @@ export default function CardForm(props) {
       <form className="card-form" name="card-form" onSubmit={handleSubmit}>
         <CardNumberInput
           number={number}
-          onChangeNumber={onChangeNumber}
-          onFocus={setFocus}
+          onChangeNumber={setNumber}
+          onFocusNumber={setFocus}
         />
         <CardHolderInput
           holder={holder}
           onChangeHolder={setHolder}
-          onFocus={setFocus}
+          onFocusHolder={setFocus}
         />
         <CardExpiryInput
           expiry={expiry}
-          onChangeExpiry={onChangeExpiry}
-          onFocus={setFocus}
+          onChangeExpiry={setExpiry}
+          onFocusExpiry={setFocus}
         />
-        <CardCvcInput cvc={cvc} onChangeCvc={onChangeCvc} onFocus={setFocus} />
+        <CardCvcInput cvc={cvc} onChangeCvc={setCvc} onFocusCvc={setFocus} />
         <input type="hidden" name="issuer" value={issuer} />
         <button type="submit">Submit</button>
       </form>

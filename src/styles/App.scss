@@ -1,6 +1,15 @@
 @import "functions";
 
-$heading: red;
+$heading: null;
+$buttonColor: null;
+$mainText: null;
+$additionalText: null;
+$buttonText: null;
+$activeIcon: null;
+$inactiveIcon: null;
+$switcherBack: null;
+$placeholderColor: null;
+$background: null;
 
 .App {
   height: 100%;
@@ -9,29 +18,11 @@ $heading: red;
 }
 
 .theme-light {
-  $heading: getColor(white);
-  --buttonColor: getColor(orangeDark);
-  --mainText: getColor(white);
-  --additionalText: getColor(grayLight);
-  --buttonText: getColor(white);
-  --activeIcon: getColor(yellowSun);
-  --inactiveIcon: getColor(grayLight);
-  --switcherBack: getColor(white);
-  --placeholderColor: getColor(grayLight);
-  --background: getColor(blueGradient);
+  $background: getColor(blueGradient);
 }
 
 .theme-dark {
-  $heading: getColor(black);
-  --buttonColor: getColor(orangeLight);
-  --mainText: getColor(black);
-  --additionalText: getColor(tundora);
-  --buttonText: getColor(white);
-  --activeIcon: getColor(blueMoon);
-  --inactiveIcon: getColor(greyDark);
-  --switcherBack: getColor(tundora);
-  --placeholderColor: getColor(doveGray);
-  --background: getColor(purpleGradient);
+  $background: getColor(purpleGradient);
 }
 
 /* elements that change color */
@@ -60,7 +51,7 @@ body {
   font-family: "Raleway", sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  background: var(--background);
+  background: $background;
 }
 
 code {
