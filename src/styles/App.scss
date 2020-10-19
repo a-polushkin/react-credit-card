@@ -1,0 +1,152 @@
+@import "functions";
+
+$heading: red;
+
+.App {
+  height: 100%;
+  display: block;
+  text-align: center;
+}
+
+.theme-light {
+  $heading: getColor(white);
+  --buttonColor: getColor(orangeDark);
+  --mainText: getColor(white);
+  --additionalText: getColor(grayLight);
+  --buttonText: getColor(white);
+  --activeIcon: getColor(yellowSun);
+  --inactiveIcon: getColor(grayLight);
+  --switcherBack: getColor(white);
+  --placeholderColor: getColor(grayLight);
+  --background: getColor(blueGradient);
+}
+
+.theme-dark {
+  $heading: getColor(black);
+  --buttonColor: getColor(orangeLight);
+  --mainText: getColor(black);
+  --additionalText: getColor(tundora);
+  --buttonText: getColor(white);
+  --activeIcon: getColor(blueMoon);
+  --inactiveIcon: getColor(greyDark);
+  --switcherBack: getColor(tundora);
+  --placeholderColor: getColor(doveGray);
+  --background: getColor(purpleGradient);
+}
+
+/* elements that change color */
+
+.title {
+  font-weight: bold;
+  padding-bottom: 50px;
+  color: $heading;
+}
+
+.card-container button {
+  background: var(--buttonColor);
+  color: var(--buttonText);
+}
+
+/* All other styles */
+html {
+  padding: 100px;
+  box-sizing: border-box;
+  height: 100%;
+}
+body {
+  margin: 0;
+  height: 97%;
+  width: 100%;
+  font-family: "Raleway", sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background: var(--background);
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
+    monospace;
+}
+
+.card-container {
+  padding: 5%;
+  width: 350px;
+  background: var(--creditCardBack);
+  border: none;
+  border-radius: 10px;
+  margin: 10px auto;
+
+  height: auto;
+  position: relative;
+}
+
+.card-container button {
+  width: 100%;
+  border-radius: 10px;
+  height: 2rem;
+  font-size: 1rem;
+  font-weight: 700;
+  border: none;
+}
+
+.card-preview {
+  margin-top: -100px;
+}
+
+.card-input {
+  background: transparent;
+  margin-left: auto;
+  margin-right: auto;
+  border: none;
+  font-size: 20px;
+  width: 300px;
+  &:focus {
+    border-bottom: 1px solid var(--buttonColor);
+    outline: none;
+  }
+  &::placeholder {
+    color: var(--placeholderColor);
+  }
+  &__light {
+    color: #000;
+    border-bottom: 1px solid #434343 !important;
+  }
+  &__dark {
+    color: #fff;
+    border-bottom: 1px solid #c3c3c3 !important;
+  }
+}
+
+.card-input-label {
+  margin-top: 15px;
+  margin-left: auto;
+  margin-right: auto;
+  width: 300px;
+  text-align: left;
+  display: inline-block;
+  color: var(--additionalText);
+  font-size: 12px;
+}
+
+button {
+  outline: none;
+  cursor: pointer;
+}
+
+.icon.active {
+  color: var(--active);
+}
+
+.icon {
+  color: var(--inactive);
+}
+
+/*
+// change visa card gradient
+.rccs__card--visa .rccs__card__background {
+  background-image: linear-gradient(
+    135deg,
+    rgb(205, 254, 255) 0%,
+    rgb(204, 190, 255) 100%
+  ) !important;
+}*/

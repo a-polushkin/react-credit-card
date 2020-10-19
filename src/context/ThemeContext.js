@@ -22,8 +22,6 @@ export function ThemeProvider(props) {
     const lastTheme = window.localStorage.getItem("theme");
     if (lastTheme) {
       setTheme(lastTheme);
-      const root = document.getElementsByTagName("html")[0];
-      root.setAttribute("theme", lastTheme);
     }
   }, [theme]);
 

@@ -18,7 +18,6 @@ export default function CardForm(props) {
   const [cvc, setCvc] = useState("");
   const [issuer, setIssuer] = useState("");
   const [focused, setFocus] = useState("");
-  const [formData, setFormData] = useState({});
 
   const onChangeNumber = useCallback((target) => {
     setNumber(formatCreditCardNumber(target.value));
@@ -37,7 +36,6 @@ export default function CardForm(props) {
   const handleSubmit = useCallback((e) => {
     e.preventDefault();
     const formData = new FormData(e.target);
-    setFormData(formData);
     for (let [name, value] of formData) {
       console.log(`${name} = ${value}`);
     }

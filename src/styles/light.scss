@@ -1,0 +1,13 @@
+@import "functions";
+$light:(
+        heading: getColor(white),
+        buttonColor: getColor(orangeDark),
+        mainText: getColor(white),
+        additionalText: getColor(grayLight),
+        buttonText: getColor(white),
+        activeIcon: getColor(yellowSun),
+        inactiveIcon: getColor(grayLight),
+        switcherBack: getColor(white),
+        placeholderColor: getColor(grayLight),
+        background: getColor(blueGradient),
+)

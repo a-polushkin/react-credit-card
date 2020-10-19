@@ -1,15 +1,18 @@
 import React from "react";
-import "./App.css";
 import Switch from "./components/Switch";
 import CardForm from "./components/CardForm";
+import ThemeContext, { ThemeProvider } from "./context/ThemeContext";
 
 function App() {
+  const { theme } = React.useContext(ThemeContext);
   return (
-    <div className="App">
-      <h2>PAYMENT DETAILS</h2>
-      <CardForm />
-      <Switch />
-    </div>
+    <ThemeProvider>
+      <div className={`theme-${theme} App`}>
+        <div className='title'>PAYMENT DETAILS</div>
+        <CardForm />
+        <Switch />
+      </div>
+    </ThemeProvider>
   );
 }
 

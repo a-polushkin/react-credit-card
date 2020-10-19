@@ -18,6 +18,7 @@ export default function CardHolderInput({ holder, onChangeHolder, onFocus }) {
         required
         maxLength={25}
         value={holder}
+        //TODO
         onChange={({ target }) => onChangeHolder(target.value.toUpperCase())}
         onFocus={({ target }) => onFocus(target.name)}
       />

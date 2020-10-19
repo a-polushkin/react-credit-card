@@ -1,0 +1,13 @@
+@import "functions";
+$dark:(
+        heading: getColor(black),
+        buttonColor: getColor(orangeLight),
+        mainText: getColor(black),
+        additionalText: getColor(tundora),
+        buttonText: getColor(white),
+        activeIcon: getColor(blueMoon),
+        inactiveIcon: getColor(greyDark),
+        switcherBack: getColor(tundora),
+        placeholderColor: getColor(doveGray),
+        background: getColor(purpleGradient),
+)
