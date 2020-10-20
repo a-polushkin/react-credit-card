@@ -1,5 +1,4 @@
 import React, { useCallback } from "react";
-import ThemeContext from "../../context/ThemeContext";
 import { formatCreditCardNumber } from "../../utils";
 
 export default function CardNumberInput({
@@ -7,9 +6,8 @@ export default function CardNumberInput({
   onChangeNumber,
   onFocusNumber,
 }) {
-  const { theme } = React.useContext(ThemeContext);
   const onChange = useCallback(
-    ({target}) => {
+    ({ target }) => {
       onChangeNumber(formatCreditCardNumber(target.value));
     },
     [onChangeNumber]
@@ -27,7 +25,7 @@ export default function CardNumberInput({
         id="cardNumber"
         type="tel"
         name="cardNumber"
-        className={`${theme}-input card-input`}
+        className="card-input"
         inputMode="numeric"
         autoComplete="cc-number"
         placeholder="**** **** **** ****"

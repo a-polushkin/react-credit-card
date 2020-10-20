@@ -1,18 +1,40 @@
+@import "functions";
+
 .switch {
   position: absolute;
+  padding: 5px;
   top: 20px;
   right: 20px;
-  width: 4rem;
-  height: 2rem;
+  width: 70px;
+  height: 35px;
   border-radius: 10px;
   display: flex;
   justify-content: space-around;
   align-items: center;
-  background: var(--switcherBack);
-  padding: 0;
   border: none;
-}
-
-.switch .icon {
-  font-size: 1.3rem;
+  &.theme-light {
+    background: getLight(switcherBackground);
+    & > .icon {
+      font-size: 1.3rem;
+      background: getLight(switcherBackground);
+      color: getLight(inactiveIcon);
+      &.active {
+        color: getLight(activeIcon);
+      }
+    }
+  }
+  &.theme-dark {
+    background: getDark(switcherBackground);
+    & > .icon {
+      font-size: 1.3rem;
+      background: getDark(switcherBackground);
+      color: getDark(inactiveIcon);
+      &.active {
+        color: getDark(activeIcon);
+      }
+    }
+  }
+  &:focus {
+    outline: none;
+  }
 }

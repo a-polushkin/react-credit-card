@@ -1,23 +1,20 @@
-@import "functions";
-$dark:(
-        heading: getColor(black),
-        buttonColor: getColor(orangeLight),
-        mainText: getColor(black),
-        additionalText: getColor(tundora),
-        buttonText: getColor(white),
-        activeIcon: getColor(blueMoon),
-        inactiveIcon: getColor(greyDark),
-        switcherBack: getColor(tundora),
-        placeholderColor: getColor(doveGray),
-        background: getColor(purpleGradient),
+@import "colorDefinitions";
+
+@function getColor($colorName) {
+  @return map-get($colors, $colorName);
+}
+
+$dark: (
+  heading: getColor(white),
+  mainText: getColor(white),
+  additionalText: getColor(grayLight),
+  placeholderColor: getColor(grayDark),
+  inputBorderColor: getColor(grayLight),
+  buttonText: getColor(white),
+  buttonColor: getColor(orangeDark),
+  switcherBackground: getColor(doveGray),
+  cardFormBackground: getColor(doveGray),
+  background: getColor(purpleGradient),
+  activeIcon: getColor(blueMoon),
+  inactiveIcon: getColor(grayDark),
 );
-$heading: getColor(black);
-$buttonColor: getColor(orangeLight);
-$mainText: getColor(black);
-$additionalText: getColor(tundora);
-$buttonText: getColor(white);
-$activeIcon: getColor(blueMoon);
-$inactiveIcon: getColor(greyDark);
-$switcherBack: getColor(tundora);
-$placeholderColor: getColor(doveGray);
-$background: getColor(purpleGradient);

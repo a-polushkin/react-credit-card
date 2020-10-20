@@ -1,0 +1,79 @@
+@import "functions";
+@import "mixins";
+
+.card-container {
+  padding: 50px 30px;
+  width: 350px;
+  background: var(--creditCardBack);
+  border: none;
+  border-radius: 10px;
+  margin: 10px auto;
+  height: auto;
+  position: relative;
+
+  &.theme-light {
+    background: getLight(cardFormBackground);
+  }
+  &.theme-dark {
+    background: getDark(cardFormBackground);
+  }
+}
+
+.card-preview {
+  margin-top: -100px;
+}
+
+.card-form {
+
+  &.theme-light {
+
+    & > .card-input-block {
+      & > .card-input-label {
+        @include inputLabel;
+        color: getLight(additionalText);
+      }
+      & > .card-input {
+        @include input;
+        color: getLight(mainText);
+        border-bottom: 1px solid getLight(inputBorderColor);
+        &:focus {
+          border-bottom: 1px solid getLight(buttonColor);
+        }
+        &::placeholder {
+          color: getLight(placeholderColor);
+        }
+      }
+    }
+
+    & > button {
+      @include formButton;
+      background: getLight(buttonColor);
+      color: getLight(buttonText);
+    }
+  }
+
+  &.theme-dark {
+    & > .card-input-block {
+      & > .card-input-label {
+        @include inputLabel;
+        color: getDark(additionalText);
+      }
+      & > .card-input {
+        @include input;
+        color: getDark(mainText);
+        border-bottom: 1px solid getDark(inputBorderColor);
+        &:focus {
+          border-bottom: 1px solid getDark(buttonColor);
+        }
+        &::placeholder {
+          color: getDark(placeholderColor);
+        }
+      }
+    }
+    & > button {
+      @include formButton;
+      background: getDark(buttonColor);
+      color: getDark(buttonText);
+    }
+  }
+}

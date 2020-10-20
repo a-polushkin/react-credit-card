@@ -1,9 +1,0 @@
-@import 'mixins';
-
-$themes: ();
-
-@import 'light';
-@include generateThemeJSExports(light, $light);
-
-@import 'dark';
-@include generateThemeJSExports(dark, $dark);

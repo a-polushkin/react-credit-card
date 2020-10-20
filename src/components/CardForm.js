@@ -5,6 +5,7 @@ import CardNumberInput from "./inputs/CardNumberInput";
 import CardHolderInput from "./inputs/CardHolderInput";
 import CardExpiryInput from "./inputs/CardExpiryInput";
 import CardCvcInput from "./inputs/CardCvcInput";
+import ThemeContext from "../context/ThemeContext";
 
 export default function CardForm(props) {
   const [number, setNumber] = useState("");
@@ -13,6 +14,8 @@ export default function CardForm(props) {
   const [cvc, setCvc] = useState("");
   const [issuer, setIssuer] = useState("");
   const [focused, setFocus] = useState("");
+
+  const { theme } = React.useContext(ThemeContext);
 
   const handleCardCallback = useCallback(({ issuer }, isValid) => {
     if (isValid) {
@@ -28,7 +31,7 @@ export default function CardForm(props) {
   }, []);
 
   return (
-    <div className="card-container">
+    <div className={`card-container theme-${theme}`}>
       <div className="card-preview">
         <Cards
           cvc={cvc}
@@ -39,7 +42,7 @@ export default function CardForm(props) {
           callback={handleCardCallback}
         />
       </div>
-      <form className="card-form" name="card-form" onSubmit={handleSubmit}>
+      <form className={`card-form theme-${theme}`} name="card-form" onSubmit={handleSubmit}>
         <CardNumberInput
           number={number}
           onChangeNumber={setNumber}

@@ -1,8 +1,10 @@
-@import 'colorDefinitions';
+@import "dark";
+@import "light";
 
-//gets a color value from color map, defined in colorDefinitions
-@function getColor($colorName) {
-  @return map-get($colors, $colorName);
+@function getDark($selector){
+  @return map-get($dark, $selector);
 }
 
-
+@function getLight($selector){
+  @return map-get($light, $selector);
+}

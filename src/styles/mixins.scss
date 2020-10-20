@@ -1,3 +1,29 @@
+@mixin title{
+  font-size: 20px;
+  font-weight: bold;
+  padding-bottom: 50px;
+}
+
+@mixin formButton{
+    margin-top: 30px;
+    width: 100%;
+    border-radius: 10px;
+    height: 2rem;
+    font-size: 1rem;
+    font-weight: 700;
+    border: none;
+}
+
+@mixin inputLabel{
+  margin-top: 15px;
+  margin-left: auto;
+  margin-right: auto;
+  width: 300px;
+  text-align: left;
+  display: inline-block;
+  font-size: 12px;
+}
+
 @mixin input{
   background: transparent;
   margin-left: auto;
@@ -5,5 +31,9 @@
   border: none;
   font-size: 20px;
   width: 300px;
+  &:focus {
+    outline: none;
+  }
 }
+
 
