@@ -1,5 +1,6 @@
 import React, { useCallback } from "react";
 import { formatCreditCardNumber } from "../../utils";
+import PropTypes from "prop-types";
 
 export default function CardNumberInput({
   number,
@@ -38,3 +39,9 @@ export default function CardNumberInput({
     </div>
   );
 }
+
+CardNumberInput.propTypes = {
+    number: PropTypes.string,
+    onChangeNumber: PropTypes.func,
+    onFocus: PropTypes.func,
+};

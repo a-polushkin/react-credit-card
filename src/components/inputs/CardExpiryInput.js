@@ -1,6 +1,7 @@
 import React, { useCallback } from "react";
 import ThemeContext from "../../context/ThemeContext";
 import { formatExpirationDate } from "../../utils";
+import PropTypes from "prop-types";
 
 export default function CardExpiryInput({
   expiry,
@@ -20,7 +21,7 @@ export default function CardExpiryInput({
   return (
     <div className="card-input-block">
       <label className="card-input-label" htmlFor="cardDate">
-        Name on card
+        Expiration date
       </label>
       <input
         type="tel"
@@ -36,3 +37,9 @@ export default function CardExpiryInput({
     </div>
   );
 }
+
+CardExpiryInput.propTypes = {
+  expiry: PropTypes.string,
+  onChangeExpiry: PropTypes.func,
+  onFocus: PropTypes.func,
+};

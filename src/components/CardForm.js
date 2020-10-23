@@ -7,7 +7,7 @@ import CardExpiryInput from "./inputs/CardExpiryInput";
 import CardCvcInput from "./inputs/CardCvcInput";
 import ThemeContext from "../context/ThemeContext";
 
-export default function CardForm(props) {
+export default function CardForm() {
   const [number, setNumber] = useState("");
   const [holder, setHolder] = useState("");
   const [expiry, setExpiry] = useState("");

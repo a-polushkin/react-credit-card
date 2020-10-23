@@ -1,6 +1,8 @@
-import React, { useCallback } from "react";
+import React, {useCallback} from "react";
+import PropTypes from "prop-types";
 import ThemeContext from "../../context/ThemeContext";
-import { formatCVC } from "../../utils";
+import {formatCVC} from "../../utils";
+
 
 export default function CardCvcInput({ cvc, onChangeCvc, onFocusCvc }) {
   const { theme } = React.useContext(ThemeContext);
@@ -18,7 +20,7 @@ export default function CardCvcInput({ cvc, onChangeCvc, onFocusCvc }) {
   return (
     <div className="card-input-block">
       <label className="card-input-label" htmlFor="cardDate">
-        Name on card
+          Card Verification Code
       </label>
       <input
         type="tel"
@@ -34,3 +36,9 @@ export default function CardCvcInput({ cvc, onChangeCvc, onFocusCvc }) {
     </div>
   );
 }
+
+CardCvcInput.propTypes = {
+  cvc: PropTypes.string,
+  onChangeCvc: PropTypes.func,
+  onFocus: PropTypes.func,
+};

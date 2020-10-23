@@ -1,5 +1,6 @@
 import React, { useCallback } from "react";
 import ThemeContext from "../../context/ThemeContext";
+import PropTypes from "prop-types";
 
 export default function CardHolderInput({
   holder,
@@ -35,3 +36,9 @@ export default function CardHolderInput({
     </div>
   );
 }
+
+CardHolderInput.propTypes = {
+    holder: PropTypes.string,
+    onChangeHolder: PropTypes.func,
+    onFocus: PropTypes.func,
+};
